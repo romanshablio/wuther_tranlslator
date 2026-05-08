@@ -1,93 +1,83 @@
 # wuther_tranlslator
-Переводчик текста с экрана на python 3.11
 
-Этот проект позволяет в реальном времени распознавать субтитры с экрана, переводить их с английского на русский и отображать в оверлей-окне поверх любых окон (например, поверх игры или видеоплеера).
+A Python 3.11 screen text translator.
 
----
+This project recognizes subtitles or text from the screen in real time, translates it from English to Russian, and displays the result in an overlay window above other applications, such as a game or video player.
 
-## 🔧 Возможности
+## Features
 
-- Распознавание текста с экрана (OCR) через Tesseract
-- Перевод через Google Translate API (без ключа)
-- Перемещаемое, масштабируемое и полупрозрачное окно поверх всего
-- Кнопка «Продолжить» для ручного обновления перевода
-- Сохранение размера и положения окна в `config.json`
+- Screen text recognition through Tesseract OCR.
+- Translation through Google Translate API without an API key.
+- Movable, resizable, semi-transparent always-on-top overlay window.
+- Continue button for manual translation updates.
+- Overlay size and position saved in `config.json`.
 
----
+## Requirements
 
-## 📦 Требования
+- Python 3.11 recommended.
+- macOS with PyQt5 support, tested on macOS 13-14.
+- Installed Tesseract OCR through Homebrew.
 
-- Python 3.11 (рекомендуется)
-- macOS с поддержкой PyQt5 (проверено на macOS 13–14)
-- Установленный Tesseract (через Homebrew)
+## Installation
 
----
+### 1. Install Tesseract OCR on macOS
 
-## 🧰 Установка
-
-### 1. Установка Tesseract OCR (для macOS):
 ```bash
 brew install tesseract
 ```
 
-### 2. Клонирование проекта:
+### 2. Clone the Project
+
 ```bash
-git clone https://github.com/your-username/ocr-subtitle-translator.git
-cd ocr-subtitle-translator
+git clone https://github.com/romanshablio/wuther_tranlslator.git
+cd wuther_tranlslator
 ```
 
-### 3. Создание виртуального окружения:
+### 3. Create a Virtual Environment
+
 ```bash
 python3.11 -m venv venv
 source venv/bin/activate
 ```
 
-### 4. Установка зависимостей:
+### 4. Install Dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
-Если файла `requirements.txt` нет, установите вручную:
+If `requirements.txt` is missing, install dependencies manually:
+
 ```bash
 pip install PyQt5 pytesseract pillow mss googletrans==4.0.0-rc1
 ```
 
----
+## Running
 
-## 🚀 Запуск
 ```bash
 python overlay_translator.py
 ```
-## 🚀 Тестировалось на macOS
-Окно появится поверх всех окон. Можно изменять его размер и положение — параметры сохранятся автоматически.
 
----
+An overlay window appears above other windows. You can resize and move it. The settings are saved automatically.
 
-## 📂 Структура проекта
+## Project Structure
 
-| Файл                  | Назначение                                     |
-|-----------------------|------------------------------------------------|
-| `overlay_translator.py` | Основной скрипт                                |
-| `config.json`         | Сохраняет позицию и размер окна                |
-| `README.md`           | Инструкция по запуску                         |
+| File | Purpose |
+| --- | --- |
+| `overlay_translator.py` | Main script. |
+| `config.json` | Saves overlay position and size. |
+| `README.md` | Launch instructions. |
 
----
+## Settings
 
-## ⚙️ Настройки
+The OCR area is calculated automatically from the translation window size.
 
-Настраиваемая область OCR рассчитывается автоматически из размеров окна перевода.
+## Troubleshooting
 
----
+- Make sure `tesseract` is installed and available at `/opt/homebrew/bin/tesseract`.
+- Check that PyQt5 is installed in the active environment.
+- Allow screen access in `System Settings > Privacy > Screen Recording`.
 
-## ❓ Поддержка
+## License
 
-Если у вас возникают проблемы:
-- Убедитесь, что `tesseract` установлен и доступен по пути `/opt/homebrew/bin/tesseract`
-- Проверьте, что PyQt5 установлен в окружении
-- Разрешите приложению доступ к экрану в `System Settings > Privacy > Screen Recording`
-
----
-
-## 📄 Лицензия
-
-MIT License
+MIT License.
